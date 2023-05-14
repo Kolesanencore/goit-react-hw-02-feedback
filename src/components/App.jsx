@@ -3,16 +3,14 @@ import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Card } from './FeedbackOptions/FeedbackOptions.styled';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    };
-  }
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
   handleFeedback = type => {
     this.setState(prevState => ({ [type]: prevState[type] + 1 }));
@@ -29,7 +27,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <Card>
         <h1>Expresso Feedback</h1>
         <Section title="Please leave your feedback">
           <FeedbackOptions
@@ -50,7 +48,7 @@ export class App extends Component {
             />
           )}
         </Section>
-      </div>
+      </Card>
     );
   }
 }
