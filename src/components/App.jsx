@@ -3,7 +3,11 @@ import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
-import { Card } from './FeedbackOptions/FeedbackOptions.styled';
+
+import {
+  Card,
+  ButtonContainer,
+} from './FeedbackOptions/FeedbackOptions.styled';
 
 export class App extends Component {
   state = {
@@ -28,12 +32,14 @@ export class App extends Component {
   render() {
     return (
       <Card>
-        <h1>Expresso Feedback</h1>
+        <h1>Expresso</h1>
         <Section title="Please leave your feedback">
-          <FeedbackOptions
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.handleFeedback}
-          />
+          <ButtonContainer>
+            <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.handleFeedback}
+            />
+          </ButtonContainer>
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 ? (
